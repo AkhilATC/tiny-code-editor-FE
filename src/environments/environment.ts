@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  socketUrl:"http://localhost:8080/tiny_code",
+  serverUrl:"http://localhost:8080/"
 };
 
 /*

@@ -9,7 +9,7 @@
 
     <!-- </span> -->
     <span><button (click)="saveBteArray()">Download</button></span>
-    <span>Run</span>
+    <span><button (click)="executeCode()">RUN</button></span>
   </div>
 
 
@@ -18,7 +18,6 @@
     [theme]="theme"
     [codeModel]="codeModel"
     [options]="options"
-    [disabled]="!selectedLanguage"
     (valueChanged)="onCodeChanged($event)">
   </ngs-code-editor>
 
