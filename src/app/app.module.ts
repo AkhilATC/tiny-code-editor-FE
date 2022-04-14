@@ -8,6 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon';
+//import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DisplayModelComponent } from './display-model/display-model.component';
+
 
 const config: SocketIoConfig = {
 	url: environment.socketUrl, // socket server url;
@@ -18,13 +23,16 @@ const config: SocketIoConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisplayModelComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatIconModule,
     // MatFormFieldModule,
     SocketIoModule.forRoot(config),
     CodeEditorModule.forRoot()

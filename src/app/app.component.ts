@@ -11,7 +11,7 @@ import { SocketService } from './services/socket.service';
 })
 export class AppComponent implements OnInit{
   title = 'tiny-code-playground';
-  theme = 'hc-black';
+  theme = 'vs-dark'; //vs-dark hc
   public isPython = false;
   selectedLanguage: any;
   codeString: string ;

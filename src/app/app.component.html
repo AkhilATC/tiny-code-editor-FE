@@ -1,27 +1,26 @@
-<h1>Tiny Playground : Simple online IDE</h1>
-
+<div class="tiny-code">
+  <p>Tiny🕹️  <sub>Simple online IDE</sub> </p>
+</div>
 
   <div class="inner-controls">
     <!-- <span> -->
+      <!-- <mat-icon>list</mat-icon> -->
       <select [(ngModel)]="selectedLanguage" [disabled]="selectedLanguage" (onModelChange)="changeModelValues()">
         <option *ngFor="let c of langsAllowed" [ngValue]="c">{{c.name}}</option>
      </select>
 
     <!-- </span> -->
-    <span><button (click)="saveBteArray()">Download</button></span>
-    <span><button (click)="executeCode()">RUN</button></span>
+    <span><button (click)="saveBteArray()"><mat-icon>cloud_download</mat-icon></button></span>
+    <span><button (click)="executeCode()"><mat-icon>play_circle_filled</mat-icon></button></span>
   </div>
 
 
-  <div>
+  <div class="code-editor-div">
       <ngs-code-editor
     [theme]="theme"
     [codeModel]="codeModel"
     [options]="options"
     (valueChanged)="onCodeChanged($event)">
   </ngs-code-editor>
-
-  
-
   </div>
-
+  <app-display-model></app-display-model>
