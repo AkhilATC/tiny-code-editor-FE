@@ -24,7 +24,7 @@
   </ngs-code-editor>
   <div class="msg-control">
     <p>{{status}}</p>
-    <p class="msg-resp" *ngFor="let each of resultsArray">{{each}}</p>
+    <p [ngClass]=" isNotError ? 'msg-green' : 'msg-red'" *ngFor="let each of resultsArray">{{each}}</p>
   </div>
   </div>
   

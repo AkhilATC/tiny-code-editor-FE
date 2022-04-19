@@ -14,7 +14,8 @@ export class AppComponent implements OnInit{
   selectedLanguage: any;
   codeString: string ;
   resultsArray = [];
-  public status:string = "Console🕹️ Status: Ready"
+  public isNotError : boolean = true;
+  public status:string = "Tiny🕹️ Status: Ready"
   public langsAllowed =[{
     "name":"python",
     "icon":"py",
@@ -75,7 +76,7 @@ ngOnInit(): void {
  
 }
 executeCode(){
-  this.status = "Console🕹️ Status: Executing"
+  this.status = "Tiny🕹️ Status: Executing"
   if(this.selectedLanguage['name']=="java"){
     var firstLine = this.codeString.split('\n', 1)[0];
    // firstLine.match()
@@ -85,13 +86,15 @@ executeCode(){
   this._NetworkService.sentCodeToRunServer(payloads)
         .subscribe((data)=>{
           console.log(data);
-          this.status = "Console🕹️ Status: success ⭐"
+          this.status = "Tiny🕹️ Status: success ⭐"
           this.resultsArray = data['output'];
+          this.isNotError = data['status']
           //this.writeEventEmitter("Your note sucessfully writed 📝");
           
         },error  => {
           console.log(error)
-          this.status = "Console🕹️ Status: Failed 🔴"
+          this.status = "Tiny🕹️ Status: Failed 🔴"
+          this.isNotError = false;
           //this.writeEventEmitter("Failed to write your note: pls check payloads 🔴");
           
           });

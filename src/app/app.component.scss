@@ -34,12 +34,20 @@
     border: 2px seagreen solid;
     height: 98%;
     overflow: auto;
+    font-family: 'Courier New', monospace;
+    font-size: medium;
+    font-style: oblique;
+    font-weight: bold;
     
-    .msg-resp{
-        font-family: 'Courier New', monospace;
-        font-size: medium;
-        font-style: oblique;
-        font-weight: bold;
+    .msg-green{
+        
+        color: rgb(11, 228, 94);
+        mix-blend-mode: multiply;
+
+    }
+    .msg-red{
+        
+        color: rgb(236, 52, 19);
         mix-blend-mode: multiply;
 
     }
