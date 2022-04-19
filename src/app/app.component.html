@@ -16,11 +16,17 @@
 
 
   <div class="code-editor-div">
-      <ngs-code-editor
+    <ngs-code-editor
     [theme]="theme"
     [codeModel]="codeModel"
     [options]="options"
     (valueChanged)="onCodeChanged($event)">
   </ngs-code-editor>
+  <div class="msg-control">
+    <p>{{status}}</p>
+    <p class="msg-resp" *ngFor="let each of resultsArray">{{each}}</p>
   </div>
-  <app-display-model></app-display-model>
+  </div>
+  
+  
+  <!-- <app-display-model></app-display-model> -->

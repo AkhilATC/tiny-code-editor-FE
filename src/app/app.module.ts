@@ -14,12 +14,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DisplayModelComponent } from './display-model/display-model.component';
 
 
-const config: SocketIoConfig = {
-	url: environment.socketUrl, // socket server url;
-	options: {
-		transports: ['websocket']
-	}
-}
+// const config: SocketIoConfig = {
+// 	url: environment.socketUrl, // socket server url;
+// 	options: {
+// 		transports: ['websocket']
+// 	}
+// }
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ const config: SocketIoConfig = {
     HttpClientModule,
     MatIconModule,
     // MatFormFieldModule,
-    SocketIoModule.forRoot(config),
+   // SocketIoModule.forRoot(config),
     CodeEditorModule.forRoot()
   ],
   providers: [],

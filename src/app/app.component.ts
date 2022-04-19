@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CodeModel } from '@ngstack/code-editor';
 import { NetworkService } from './network.service';
-import { SocketService } from './services/socket.service';
-
 
 @Component({
   selector: 'app-root',
@@ -15,6 +13,8 @@ export class AppComponent implements OnInit{
   public isPython = false;
   selectedLanguage: any;
   codeString: string ;
+  resultsArray = [];
+  public status:string = "Console🕹️ Status: Ready"
   public langsAllowed =[{
     "name":"python",
     "icon":"py",
@@ -30,7 +30,6 @@ export class AppComponent implements OnInit{
 ]
   movies: any;
 constructor(
-  private socketService: SocketService,
   private _NetworkService:NetworkService
  
 ) { }
@@ -50,10 +49,10 @@ constructor(
   };
 
   onCodeChanged(value) {
-    console.log('CODE', value);
+    //console.log('CODE', value);
     this.codeString = value;
-    console.log(this.selectedLanguage)
-    console.log("-----------")
+    //console.log(this.selectedLanguage)
+   // console.log("-----------")
    
   };
   public saveBteArray() {
@@ -73,18 +72,26 @@ changeModelValues(){
   }
 }
 ngOnInit(): void {
-  this.socketService.fetchMovies();
-  this.socketService.OnFetchMovies().subscribe((data: any) => this.movies = data)
+ 
 }
 executeCode(){
+  this.status = "Console🕹️ Status: Executing"
+  if(this.selectedLanguage['name']=="java"){
+    var firstLine = this.codeString.split('\n', 1)[0];
+   // firstLine.match()
+    console.log("===========haha"+firstLine)
+  }
   let payloads = {'lang':this.selectedLanguage,'code':this.codeString}
   this._NetworkService.sentCodeToRunServer(payloads)
         .subscribe((data)=>{
           console.log(data);
+          this.status = "Console🕹️ Status: success ⭐"
+          this.resultsArray = data['output'];
           //this.writeEventEmitter("Your note sucessfully writed 📝");
           
         },error  => {
           console.log(error)
+          this.status = "Console🕹️ Status: Failed 🔴"
           //this.writeEventEmitter("Failed to write your note: pls check payloads 🔴");
           
           });

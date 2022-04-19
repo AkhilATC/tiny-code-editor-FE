@@ -26,3 +26,21 @@
 .code-editor-div{
     height: 50%;
 }
+
+.msg-control{
+    
+    background-image: url("/assets/screen_1_science.png");
+    opacity: 0.7;
+    border: 2px seagreen solid;
+    height: 98%;
+    overflow: auto;
+    
+    .msg-resp{
+        font-family: 'Courier New', monospace;
+        font-size: medium;
+        font-style: oblique;
+        font-weight: bold;
+        mix-blend-mode: multiply;
+
+    }
+}
