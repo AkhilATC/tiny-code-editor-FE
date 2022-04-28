@@ -8,7 +8,7 @@ import { NetworkService } from './network.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'tiny-code-playground';
+  title = 'Tiny🕹️';
   theme = 'vs-dark'; //vs-dark hc
   public isPython = false;
   selectedLanguage: any;
@@ -79,8 +79,12 @@ executeCode(){
   this.status = "Tiny🕹️ Status: Executing"
   if(this.selectedLanguage['name']=="java"){
     var firstLine = this.codeString.split('\n', 1)[0];
+    let pattern =/class\s+\w+/g
+    let result = this.codeString.match(pattern)
+    var className = result[0].replace("class","").trim()
    // firstLine.match()
-    console.log("===========haha"+firstLine)
+    this.selectedLanguage['file'] = className.concat(".java");
+    
   }
   let payloads = {'lang':this.selectedLanguage,'code':this.codeString}
   this._NetworkService.sentCodeToRunServer(payloads)
